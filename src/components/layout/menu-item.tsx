@@ -20,6 +20,7 @@ import {
   SheetTrigger,
 } from "../ui/sheet";
 import React from "react";
+import ConnectMenu from "../menu/connect-menu";
 
 export function MenuItem() {
   const [openConnection, setOpenConnection] = React.useState(false); // 접속정보 시트
@@ -68,10 +69,7 @@ export function MenuItem() {
       </DropdownMenu>
       <Sheet open={openConnection} onOpenChange={setOpenConnection}>
         <SheetContent>
-          <SheetHeader>
-            <SheetTitle>접속정보</SheetTitle>
-            <SheetDescription>11111</SheetDescription>
-          </SheetHeader>
+          <ConnectMenu />
         </SheetContent>
       </Sheet>
       <Sheet open={openHistory} onOpenChange={setOpenHistory}>
