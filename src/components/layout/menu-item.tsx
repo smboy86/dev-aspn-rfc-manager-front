@@ -21,6 +21,8 @@ import {
 } from "../ui/sheet";
 import React from "react";
 import ConnectMenu from "../menu/connect-menu";
+import HistoryMeny from "../menu/history-menu";
+import FavoriteMenu from "../menu/favorite-menu";
 
 export function MenuItem() {
   const [openConnection, setOpenConnection] = React.useState(false); // 접속정보 시트
@@ -74,18 +76,12 @@ export function MenuItem() {
       </Sheet>
       <Sheet open={openHistory} onOpenChange={setOpenHistory}>
         <SheetContent>
-          <SheetHeader>
-            <SheetTitle>히스토리</SheetTitle>
-            <SheetDescription>2222</SheetDescription>
-          </SheetHeader>
+          <HistoryMeny />
         </SheetContent>
       </Sheet>
       <Sheet open={openFavorite} onOpenChange={setOpenFavorite}>
         <SheetContent>
-          <SheetHeader>
-            <SheetTitle>즐겨찾기</SheetTitle>
-            <SheetDescription>2222</SheetDescription>
-          </SheetHeader>
+          <FavoriteMenu />
         </SheetContent>
       </Sheet>
     </>
