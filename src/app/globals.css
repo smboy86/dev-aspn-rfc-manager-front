@@ -66,4 +66,11 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  h1 {
+    margin-bottom: 8px;
+  }
+  h2 {
+    margin-bottom: 3px;
+  }
 }

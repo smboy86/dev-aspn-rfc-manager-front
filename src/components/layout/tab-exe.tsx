@@ -1,55 +1,71 @@
 "use client";
 
-import { Card, CardContent } from "../ui/card";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../ui/table";
-
-const TAB_NAME = {
-  exe: "실행",
-  structure: "스트럭처",
-};
+import { useState } from "react";
+import { Badge } from "../ui/badge";
+import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
+import { Separator } from "../ui/separator";
+import { Label } from "../ui/label";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 
 const TabExe = () => {
+  const [] = useState("");
+
+  const handleExe = () => {
+    // data fetch
+    alert("RFC 실행");
+  };
+
   return (
     <>
       <Card>
+        <CardHeader></CardHeader>
         <CardContent>
-          <div className="flex flex-col mt-4">
-            <span className="font-bold text-xl ">Import</span>
-            <span className="text-sm">parameter</span>
+          <h1>1. 실행 준비 옵션</h1>
+          <h2>호출방법</h2>
+          <div className="flex gap-2">
+            <Badge variant={"default"}>import</Badge>
+            <Badge variant={"destructive"}>Table</Badge>
           </div>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>ParamId</TableHead>
-                <TableHead>ColumnA</TableHead>
-                <TableHead>ColumnB</TableHead>
-                <TableHead>ColumnC</TableHead>
-                <TableHead>ColumnD</TableHead>
-                <TableHead>...</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {/* row 반복 부분 */}
-              <TableRow onClick={() => alert("ddd")}>
-                <TableCell>BUNNR</TableCell>
-                <TableCell>ColumnA</TableCell>
-                <TableCell>ColumnB</TableCell>
-                <TableCell>ColumnC</TableCell>
-                <TableCell>ColumnD</TableCell>
-                <TableCell>...</TableCell>
-              </TableRow>
-            </TableBody>
-            <TableCaption>column {"10"}개, row 125개 </TableCaption>
-          </Table>
+          <Separator className="my-10" />
+          <h1>1. 실행</h1>
+          <h2>1) import Param</h2>
+          <div className="import-box pb-4">
+            <div className="grid grid-cols-2 gap-4 py-1 pl-2">
+              <div className="grid gap-2">
+                <Label htmlFor="BUNNR">BUNNR</Label>
+                <Input id="BUNNR" type="text" />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="BENNR">BENNR</Label>
+                <Input id="BENNR" type="text" />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="NAKJD">NAKJD</Label>
+                <Input id="NAKJD" type="text" />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="KAKDO">KAKDO</Label>
+                <Input id="KAKDO" type="text" />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="NAKJD">NAKJD</Label>
+                <Input id="NAKJD" type="text" />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="KAKDO">KAKDO</Label>
+                <Input id="KAKDO" type="text" />
+              </div>
+            </div>
+          </div>
+          <h2>2) Table Param</h2>
+          <h3>A Table</h3>
+          <div className=""></div>
+          <h3>B Table</h3>
         </CardContent>
+        <CardFooter className="flex justify-center">
+          <Button onClick={handleExe}>실행</Button>
+        </CardFooter>
       </Card>
     </>
   );
