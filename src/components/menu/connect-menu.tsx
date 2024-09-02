@@ -112,7 +112,7 @@ const ConnectMenu = () => {
                 <InputLabel
                   id="input7"
                   type="password"
-                  label="jpasswd"
+                  label="passwd"
                   placeholder="******"
                 />
                 <div className="pt-4">

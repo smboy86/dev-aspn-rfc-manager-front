@@ -1,6 +1,11 @@
 "use client";
 
-import { LinkNone2Icon, Pencil1Icon, StarIcon } from "@radix-ui/react-icons";
+import {
+  HamburgerMenuIcon,
+  LinkNone2Icon,
+  Pencil1Icon,
+  StarIcon,
+} from "@radix-ui/react-icons";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
 import {
@@ -36,7 +41,9 @@ export function MenuItem() {
           <Button variant="ghost" className="relative h-8 w-8 rounded-full">
             <Avatar className="h-8 w-8">
               <AvatarImage src="/avatars/01.png" alt="@shadcn" />
-              <AvatarFallback>메뉴</AvatarFallback>
+              <AvatarFallback>
+                <HamburgerMenuIcon />
+              </AvatarFallback>
             </Avatar>
           </Button>
         </DropdownMenuTrigger>
