@@ -1,16 +1,29 @@
+"use client";
+
 import { MenuItem } from "@/components/layout/menu-item";
 import TabExe from "@/components/layout/tab-exe";
+import TabResult from "@/components/layout/tab-result";
 import TabStructure from "@/components/layout/tab-structure";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useCommonStore } from "@/store/commonStore";
+import { useState } from "react";
 
 const TAB_NAME = {
   exe: "실행",
   structure: "스트럭처",
+  result: "결과",
 };
 
 export default function Home() {
+  const [isExe, setIsExe] = useState(false);
+  const { curTab, setCurrentTab } = useCommonStore((state) => state);
+
+  const handleCurTab = (tabId: string) => {
+    setCurrentTab(tabId);
+  };
+
   return (
     // page container
     <div className="flex flex-col w-full max-w-[1080px] mx-auto pt-4">
@@ -33,24 +46,38 @@ export default function Home() {
         <div className="w-1/2 mx-auto  text-center">
           <div className="flex gap-2">
             <Input type="text" placeholder="호출할 RFC 함수명" />
-            <Button>호출</Button>
+            <Button
+              onClick={() => {
+                setIsExe(true);
+              }}
+            >
+              호출
+            </Button>
           </div>
         </div>
         {/* 2/2)  Tab - 실행, 스트럭처*/}
-        <div className="w-full mt-10">
-          <Tabs defaultValue="exe">
-            <TabsList>
-              <TabsTrigger value="exe">{TAB_NAME.exe}</TabsTrigger>
-              <TabsTrigger value="structure">{TAB_NAME.structure}</TabsTrigger>
-            </TabsList>
-            <TabsContent value="exe">
-              <TabExe />
-            </TabsContent>
-            <TabsContent value="structure">
-              <TabStructure />
-            </TabsContent>
-          </Tabs>
-        </div>
+        {isExe ? (
+          <div className="w-full mt-10">
+            <Tabs value={curTab} onValueChange={handleCurTab}>
+              <TabsList>
+                <TabsTrigger value="exe">{TAB_NAME.exe}</TabsTrigger>
+                <TabsTrigger value="structure">
+                  {TAB_NAME.structure}
+                </TabsTrigger>
+                <TabsTrigger value="result">{TAB_NAME.result}</TabsTrigger>
+              </TabsList>
+              <TabsContent value="exe">
+                <TabExe />
+              </TabsContent>
+              <TabsContent value="structure">
+                <TabStructure />
+              </TabsContent>
+              <TabsContent value="result">
+                <TabResult />
+              </TabsContent>
+            </Tabs>
+          </div>
+        ) : null}
       </div>
     </div>
   );

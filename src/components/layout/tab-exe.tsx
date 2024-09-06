@@ -20,6 +20,7 @@ import {
   VisibilityState,
 } from "@tanstack/react-table";
 import { TableCellEdit } from "@/app/data-table/TableCell";
+import { useCommonStore } from "@/store/commonStore";
 
 export type TableParamData = {
   paramA: string;
@@ -73,6 +74,10 @@ export const columns: ColumnDef<TableParamData>[] = [
 ];
 
 const TabExe = () => {
+  // common
+  const { setCurrentTab } = useCommonStore((state) => state);
+
+  //
   const [activeImportParam, setActiveImportParam] = useState(true);
   const [activeTableParam, setActiveTableParam] = useState(true);
 
@@ -135,6 +140,9 @@ const TabExe = () => {
     alert("RFC 실행");
     alert("dev ing...  input params :::");
     alert(`table params...  ::${JSON.stringify(data, null, 2)}`);
+
+    // 탭이동
+    setCurrentTab("result");
   };
 
   return (
@@ -201,7 +209,7 @@ const TabExe = () => {
               <div className="">
                 <TableParam table={table} columns={columns} />
               </div>
-              <h3>B Table</h3>
+              {/* <h3>B Table</h3> */}
             </>
           ) : null}
         </CardContent>
