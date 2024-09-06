@@ -17,7 +17,8 @@ const TAB_NAME = {
 };
 
 export default function Home() {
-  const [isExe, setIsExe] = useState(false);
+  const [value, setValue] = useState(""); // RFC INPUT
+  const [isExe, setIsExe] = useState(false); // 최초 호출 여부
   const { curTab, setCurrentTab } = useCommonStore((state) => state);
 
   const handleCurTab = (tabId: string) => {
@@ -45,9 +46,18 @@ export default function Home() {
         {/* 1/2 input box */}
         <div className="w-1/2 mx-auto  text-center">
           <div className="flex gap-2">
-            <Input type="text" placeholder="호출할 RFC 함수명" />
+            <Input
+              type="text"
+              placeholder="호출할 RFC 함수명"
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+            />
             <Button
               onClick={() => {
+                if (value.length <= 0) {
+                  alert("호출할 RFC를 입력하세요. ");
+                  return;
+                }
                 setIsExe(true);
               }}
             >

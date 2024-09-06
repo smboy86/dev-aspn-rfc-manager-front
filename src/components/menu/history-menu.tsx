@@ -39,7 +39,11 @@ const HistoryMeny = () => {
               <TableBody>
                 {/* row 반복 부분 */}
                 {/* 1/2) success 클릭 이벤트 = 기존 영역 지우고 input 창 입력 */}
-                <TableRow onClick={() => alert("ddd")}>
+                <TableRow
+                  onClick={() =>
+                    alert("기존 결과 지우고, RFC 호출 input 자동 복사")
+                  }
+                >
                   <TableCell className="font-medium">
                     <Badge variant="default">Success</Badge>
                   </TableCell>
@@ -52,13 +56,21 @@ const HistoryMeny = () => {
                   </TableCell>
                   <TableCell>RFC_FUNCTIOJN_B</TableCell>
                 </TableRow>
-                <TableRow onClick={() => alert("ddd")}>
+                <TableRow
+                  onClick={() =>
+                    alert("기존 결과 지우고, RFC 호출 input 자동 복사")
+                  }
+                >
                   <TableCell className="font-medium">
                     <Badge variant="default">Success</Badge>
                   </TableCell>
                   <TableCell>RFC_FUNCTIOJN_C</TableCell>
                 </TableRow>
-                <TableRow onClick={() => alert("ddd")}>
+                <TableRow
+                  onClick={() =>
+                    alert("기존 결과 지우고, RFC 호출 input 자동 복사")
+                  }
+                >
                   <TableCell className="font-medium">
                     <Badge variant="default">Success</Badge>
                   </TableCell>

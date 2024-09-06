@@ -50,13 +50,13 @@ const ConnectMenu = () => {
                   </TableHeader>
                   <TableBody>
                     {/* row 반복 부분 */}
-                    <TableRow onClick={() => alert("ddd")}>
+                    <TableRow onClick={() => alert("1 ESSD 시스템 접속")}>
                       <TableCell className="font-medium">
                         1 ESSD 시스템
                       </TableCell>
                       <TableCell>000.000.000.000</TableCell>
                     </TableRow>
-                    <TableRow>
+                    <TableRow onClick={() => alert("2 ESSD 시스템 접속")}>
                       <TableCell className="font-medium">
                         2 ESSD 시스템
                       </TableCell>
@@ -116,7 +116,14 @@ const ConnectMenu = () => {
                   placeholder="******"
                 />
                 <div className="pt-4">
-                  <Button variant={"default"}>Test Connection & Save</Button>
+                  <Button
+                    variant={"default"}
+                    onClick={() => {
+                      alert("접속 시도 및 접속 시스템 변경");
+                    }}
+                  >
+                    Test Connection & Save
+                  </Button>
                 </div>
               </CardContent>
             </Card>
